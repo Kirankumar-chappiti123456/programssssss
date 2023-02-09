@@ -1,0 +1,1006 @@
+#include<stdio.h>    
+int main()    
+{    
+ int n1=0,n2=1,n3,i,number;    
+ printf("Enter the number of elements:");    
+ scanf("%d",&number);    
+ printf("\n%d %d",n1,n2);//printing 0 and 1    
+ for(i=2;i<number;++i)//loop starts from 2 because 0 and 1 are already printed    
+ {    
+  n3=n1+n2;    
+  printf(" %d",n3);    
+  n1=n2;    
+  n2=n3;    
+ }  
+  return 0;  
+ }    #include<stdio.h>
+ 
+int main()
+{
+     const int  val=30;
+    int *ptr=(int*)&val;
+    *ptr=10;
+printf("%d",val);
+}
+
+
+
+
+
+8/11/22
+
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+#include<string.h>
+enum errors{E_EQUAL,E_NOTEQUAL};
+int main() {
+    int flag=E_EQUAL;
+    char s1[20];// declaration of char array
+    char s2[20];
+    //int val;
+    printf("enter s1:");
+    scanf("%s",s1);
+    printf("enter s2:");
+    scanf("%s",s2);
+    for(int i=0;s1[i]!='\0'||s2[i]!='\0';i++)
+    {
+        if(s1[i]!=s2[i])
+        {
+            flag=E_NOTEQUAL;
+            break;
+        }
+    }
+    (flag==E_NOTEQUAL)?printf("string not same"):printf("strings are same");
+   // val=strcmp(s1,s2);
+    //(val==0)?printf("strings are same"):printf("strings are not same");
+    // Write C code here
+    //printf("\n%d",val);
+
+    return 0;
+}
+
+
+
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+#include<string.h>
+int main() {
+    char s1[20];// declaration of char array
+    char s2[20];
+    int val;
+    printf("enter first string:");
+    scanf("%s",s1);
+    printf("enter second string:");
+    scanf("%s",s2);
+    val=strcmp(s1,s2);
+    (val==0)?printf("strings are same"):printf("strings are not same");
+    // Write C code here
+    printf("%d",val);
+
+    return 0;
+}
+
+
+
+
+#include <stdio.h>
+
+int main() {
+   char str[50],i=0,c=0; // it is declaring a string
+   printf("enter the string");
+   scanf("%[^\n]s",str);// it is reading the string 
+   printf("%s\n",str);// printing the string
+   //int length=strlen(str);
+   //printf("%d %d",i,c); 
+   while(str[i]!='\0')
+   {
+       c++;
+       i++;
+   }
+   printf(" the length of the string:%d",c);
+    return 0;
+}
+#include <stdio.h>
+#include<string.h>
+void str_cat(char str1[],char str2[])
+{
+    int l1=strlen(str1);
+    int l2=strlen(str2);
+    int i;
+    for(i=0;str2[i]!='\0';i++)
+    {
+        str1[l1+i]=str2[i];
+       
+    }
+   str1[l1+i]='\0';
+}
+int main() {
+   char str1[20];
+   char str2[20];
+   printf("enter the str1:");
+   scanf("%s",str1);
+   printf("enter the str2:");
+   scanf("%s",str2);
+   str_cat(str1,str2);
+   printf("%s",str1);
+   
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+   char str[]="kiran";
+   for(int i=0;i<1;i++)
+   {
+       char temp=str[i];
+       str[i]=str[5-1];
+       str[5-1]=temp;
+       
+   }
+    for(int i=0;i<5;i++)
+   {
+   printf("%c",str[i]);
+   }
+}
+
+#include <stdio.h>
+#include<string.h>
+#define N 4
+int main() {
+   char str[500];
+ 
+   printf("enter the string:"); 
+  
+   scanf("%s",str);
+  int  l=strlen(str);
+   
+       for(int i=0;i<N/2;i++)
+       {
+       char temp=str[l-(N-i)];
+       str[l-(N-i)]=str[l-(i+1)];
+       str[l-(i+1)]=temp;
+       }
+
+    for(int l=0;str[l]!='\0';l++)
+   {
+   printf("%c",str[l]);
+   }
+}
+
+array adress with code :
+
+
+#include<stdio.h>
+int main()
+{
+    int a[]={1,1,3,4,5};
+    int len =sizeof(a)/sizeof(a[0]);
+    for(int i=0;i<len;i++)
+    {
+        printf("%d ",a[i]);
+        printf("%p\n ",&a[i]);
+    
+
+    }
+    
+}
+
+
+
+
+
+
+
+#include <stdio.h>
+int main()
+{
+    int arr[7],k,temp,sum=0;
+    printf("enter the number of array elements :\n");
+    scanf("%d",&k);
+    
+    printf("\nenter the elements  into the  array:");
+    for(int i=0;i<k;i++)
+    scanf("%d",&arr[i]);
+    
+    for(int i=0;i<k/2;i++)
+    {
+        temp = arr[i];
+        arr[i] = arr[k-i-1];
+        arr[k-i-1] = temp;
+    }
+    int i=0;
+    while(i<k)
+    {
+        sum+=arr[i];
+        i++;
+    }
+    
+        printf("sum =%d \n",sum);
+        printf("\nreverse an array:");
+    for(int i=0;i<k;i++)
+    {
+        printf("%d\t",arr[i]);
+    }
+    
+    
+}
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+int avg(int[],int);
+int main() {
+   int marks[5]={10,20,30,40,50},average;
+   int size=sizeof(marks)/sizeof(marks[0]);
+   average=avg(marks,size);
+   printf("in main size of an array is %ld",sizeof(marks));
+   printf("%d",average);
+}
+int avg(int marks[],int size)
+{  
+  int sum=0,average=0;
+   for(int i=0;i<size;i++)
+   {
+     sum=sum+marks[i];
+   }
+   average=sum/size;
+    printf("in fun size of an array is %ld",sizeof(marks));
+   return average;
+}
+
+
+fun(char)//declartion
+fun(char[]) 
+fun(char[])  // method 1
+fun(char*) // method 2
+
+#include<stdio.h>
+void display(char *,char *);
+void main()
+{
+  char s1[]="Raghu";
+  char s2[]="sankar";
+  display(s1,s2);
+}
+void display(char * s1, char * s2)// call by reference
+{
+  int i,len=0;
+  for(i=0;s1[i]!='\0';i++)
+  len=len+1;
+  s2[0]='S';
+  printf("length of String is %d\n", len);
+  printf("%s %s", s1,s2);
+}
+
+
+
+
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+enum error{notfound,found};
+int found_char(char str[],char s)
+{
+    int flag=notfound;
+    for(int i=notfound;str[i]!='\0';i++)
+    {
+    if(str[i]==s)
+    {
+    flag++;
+    break;
+    }
+    }
+  return flag;
+}
+int main() {
+    char str[20]="kirankumar";
+    char ch;
+    int flag=notfound;
+    scanf("%c",&ch);
+   int k=found_char(str,ch);
+    (k==found)?printf("found"):printf("notfound");
+    
+}
+
+
+
+
+#include <stdio.h>
+enum c{FOUND,NOTFOUND};
+enum k{ONE,TWO};
+int main() {
+   char str[]="kiran";
+      for(int i=FOUND;str[i]!='\0';i++)
+      {
+   for(int j=i+NOTFOUND;str[j]!='\0';j++)
+{
+   if(str[j]<str[i])
+   {
+       char temp=str[i];
+      
+       str[i]=str[j];
+       str[j]=temp;
+   }
+}
+   }
+   printf("ascending order of a string: ");
+   
+   for(int i=FOUND;str[i]!='\0';i++)
+
+   printf("%c ",  str[i]);
+
+ for(int i=FOUND;str[i]!='\0';i++)
+      {
+   for(int j=i+NOTFOUND;str[j]!='\0';j++)
+{
+   if(str[j]>str[i])
+   {
+       char temp=str[i];
+      
+       str[i]=str[j];
+       str[j]=temp;
+   }
+}
+   }
+   printf("descending order:");
+   for(int i=FOUND;str[i]!='\0';i++)
+
+   printf("%c",str[i]);
+}
+
+
+#include <stdio.h>
+enum c{FOUND,NOTFOUND};
+enum k{ONE,TWO};
+ void ascend(char str[]);
+   void descend(char str[]);
+int main() {
+   char str[]="kiran";
+   int choice;
+   printf("enter the choice:");
+   scanf("%d",&choice);
+  
+   switch(choice)
+   {
+  case ONE : 
+       ascend(str);
+       break;
+   case TWO: 
+       descend(str);
+   
+}
+return 0;
+}
+void ascend(char str[])
+{
+      for(int i=FOUND;str[i]!='\0';i++)
+      {
+   for(int j=i+NOTFOUND;str[j]!='\0';j++)
+{
+   if(str[j]<str[i])
+   {
+       char temp=str[i];
+      
+       str[i]=str[j];
+       str[j]=temp;
+   }
+}
+   }
+   printf("ascending order of a string: ");
+}  
+void descend(char str[])
+{
+ for(int i=FOUND;str[i]!='\0';i++)
+      {
+   for(int j=i+NOTFOUND;str[j]!='\0';j++)
+{
+   if(str[j]>str[i])
+   {
+       char temp=str[i];
+      
+       str[i]=str[j];
+       str[j]=temp;
+   }
+}
+      }
+   printf("descending order:");
+   for(int i=FOUND;str[i]!='\0';i++)
+
+   printf("%c",str[i]);
+}
+
+
+
+
+
+11/11/22
+
+
+const pointer:
+
+
+#include <stdio.h>  
+int main()  
+{  
+    int a=1;  
+    int b=2;  
+    int *const ptr=&a;  
+   // ptr=&a;  
+   // ptr=&b;
+   //a=10;
+   *ptr=100;
+    printf("Value of ptr is :%d\n",*ptr);  
+    printf("%p\n",ptr);
+    printf("%p",&ptr);
+    return 0;  
+}  
+
+
+pointer to const:
+
+
+
+
+#include <stdio.h>  
+int main()  
+{  
+    int a=100;  
+    int b=200;  
+    const int* ptr;  
+    ptr=&a;
+    *ptr=200;
+    ptr=&b;  
+    printf("Value of ptr is :%d",*ptr);  
+  *ptr =100;
+    printf("%d",*ptr);
+    return 0;  
+}  
+
+
+
+
+
+
+
+
+
+14/11/22
+
+struct employee
+{
+  char name[10];
+  int id;
+  float salary;
+};
+
+int main() {
+  struct employee *ptr;
+  ptr=(struct employee *)malloc(sizeof(struct employee));
+// struct employee e;
+
+ strcpy(ptr->name,"hema");
+ ptr->id=45;
+ ptr->salary=4.5;
+ printf("%s %d %f",ptr->name,ptr->id,ptr->salary);
+ 
+  return 0;
+}
+
+
+
+
+
+
+self refferential struct :
+
+
+#include <stdio.h>
+
+struct node { // declartion of structure 
+    int data1;  // members1
+    char data2;/// member 2
+    struct node* link; //self referential structure it alway points to struct name 
+};
+
+int main()
+{
+    struct node ob1; // Node1
+
+    // Initialization
+    ob1.link = NULL;
+    ob1.data1 = 10;
+    ob1.data2 = 20;
+
+    struct node ob2; // Node2
+
+    // Initialization
+    ob2.link = NULL;
+    ob2.data1 = 30;
+    ob2.data2 = 40;
+
+    // Linking ob1 and ob2
+    ob2.link = &ob1;
+
+    // Accessing data members of ob2 using ob1
+    printf("%d", ob2.link->data1);
+    printf("\n%d", ob2.link->data2);
+    return 0;
+}
+
+size of  structure:
+
+#include <stdio.h>
+#pragma pack(1)
+struct student 
+{
+    
+    
+    
+    char name[10];
+    int num;
+    float marks;
+};
+
+int main()
+{
+    struct student s1;
+    printf("%ld",sizeof(s1));
+
+
+structure declaration :
+
+zombie process and orphan process:
+
+// Online C compiler to run C program online
+#include <stdio.h>
+#include<unistd.h>
+#include<sys/types.h>
+int main() {
+   pid_t p;
+   p=fork();
+   if(p==0) // child
+   {
+       //sleep(2);
+       printf(" i am child process having pid:%d \n",getpid());
+       printf("my parent process  pid is:%d \n",getppid());
+   }
+   else // parent
+   {
+      // sleep(2);
+       printf(" i am parent  process having pid:%d\n",getpid());
+       printf("my child process  pid is:%d\n",p);
+       
+   }
+}
+
+
+    
+    
+
+}
+
+15/11/22:
+
+
+
+typedef struct employee
+{
+  char name[10];
+  int id;
+  float salary;
+}emp;
+
+int main() {
+  emp *ptr;
+  int len=3;
+  ptr=(emp *)calloc(len,sizeof(emp));
+  (ptr+0)->id=14;
+  (ptr+0)->salary=4.5;
+  strcpy((ptr+0)->name,"hema");
+   (ptr+1)->id=14;
+  (ptr+1)->salary=4.5;
+  strcpy((ptr+1)->name,"hema");
+   (ptr+2)->id=14;
+  (ptr+2)->salary=4.5;
+  strcpy((ptr+2)->name,"hema");
+  len=4;
+  ptr=(emp *)realloc(ptr,len*sizeof(emp));
+  (ptr+3)->id=14;
+  (ptr+3)->salary=4.5;
+  strcpy((ptr+3)->name,"hema");
+  for(int i=0;i<len;i++)
+  {
+    printf("%s %d %f",(ptr+i)->name,(ptr+i)->id,(ptr+i)->salary);
+    printf("\n");
+    
+}
+free(ptr);
+  return 0;
+}
+
+passing structure functure using malloc
+struct emp
+{
+  char name[20];
+  int roll;
+  float marks;
+};
+void display(struct emp *p)
+{
+printf("%s %d %f",p->name,p->roll,p->marks);
+}
+void main()
+{
+  struct emp *p;
+ 
+  p=(struct emp *)malloc(sizeof(struct emp));
+   strcpy(p->name,"raghu");
+p->roll=21;
+p->marks=98.00;
+  
+  display(p);
+}
+
+
+
+
+
+
+
+struct emp
+{
+  char name[20];
+  int roll;
+  float marks;
+};
+void display(struct emp *p)
+{
+//   strcpy(p->name,"raghu");
+// *p->roll=22;
+// *p->marks=100.00;
+printf("%s %d %f",p->name,p->roll,p->marks);
+}
+void main()
+{
+  struct emp *p;
+ 
+  p=(struct emp *)malloc(sizeof(struct emp));
+  strcpy(p->name,"raghu");
+p->roll=21;
+p->marks=98.00;
+  
+  display(&p);
+}
+
+
+
+
+
+
+
+
+16/11/22:
+
+# include <stdio.h>
+void fun(int x)
+{
+    x = 30;
+}
+ 
+int main()
+{
+  int y = 20;
+  fun(y);
+  printf("%d", y);
+  return 0;
+}
+
+
+
+
+
+
+k=(a[i]^num);
+        (k==0)? printf(" not found"):printf("found");
+        break;
+        }
+}
+
+https://www.naukri.com/learning/articles/queue-data-structure-types-implementation-applications/
+
+
+
+
+
+
+
+21/11/22:
+
+
+how to create node in ds:
+
+#include <stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node*link;
+};
+
+int main()
+{
+    struct node *head=NULL;
+   struct node *p;
+    
+    struct node*k1=(struct node*)malloc(sizeof(struct node));
+    k1->data=6000;
+    k1->link=NULL;
+   head=k1;
+    printf("creating of node :%d\n",k1->data);
+    
+    struct node *k2=(struct node*)malloc(sizeof(struct node));
+    k2->data=5000;
+    k1->link=k2;
+    k2->link=NULL;
+    printf("creating of node :%d\n",k2->data);
+    
+    struct node *k3=(struct node*)malloc(sizeof(struct node));
+    k3->data=4000;
+    k2->link=k3;
+    k3->link=NULL;
+    printf("creating of node :%d\n",k3->data);
+    
+    struct node *k4=(struct node*)malloc(sizeof(struct node));
+    k4->data=3000;
+    k3->link=k4;
+    k4->link=NULL;
+    printf("creating of node :%d\n",k4->data);
+
+
+}
+
+
+
+
+
+
+#include <stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node *link;
+};
+struct node* insertending(struct node *head,int data)
+{
+
+     struct node *newnode= (struct node*) malloc(sizeof(struct node));
+    newnode->data = data;
+
+   newnode->link = head;
+  head=newnode;
+  return head;
+}
+
+
+
+int main()
+{
+
+    struct node *head=NULL;
+      struct node *p;
+    struct node *ptr=malloc(sizeof(struct node));
+    ptr->data=20;
+    ptr->link=NULL;
+    head=ptr;
+
+    struct node *ptr1=malloc(sizeof(struct node));
+    ptr1->data=30;
+
+     ptr->link=ptr1;
+     
+     struct node *ptr2=malloc(sizeof(struct node));
+    ptr2->data=50;
+
+     ptr1->link=ptr2;
+     ptr2->link=NULL;
+
+    int data=40;
+    head=insertending(head,data);
+    p=head;
+   while(p!=NULL)
+    {
+   printf("%d ",p->data);
+   p=p->link;
+}
+    return 0;
+}
+
+
+
+
+
+22/11/22:
+
+bubble sort :
+
+#include <stdio.h>
+int main()
+{
+    int n=5,i,j,temp;
+    int arr[5]={10,22,2,9,11};
+    for(i=0;i<n-1;i++)
+    {
+        for(j=0;j<n-1;j++)
+        {
+            if(arr[j]>arr[j+1])
+            {
+                temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+              
+            }
+        }
+
+    }
+    for(i=0;i<n;i++)
+    {
+        printf("%d\n",arr[i]);
+    }
+}
+
+
+
+
+
+
+
+adding and sorting :
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node*link;
+};
+struct node *insertatbeg(struct node *head)
+{
+
+
+    struct node*ptr=malloc(sizeof(struct node));
+    ptr->data=8000;
+    ptr->link=head;
+    head=ptr;
+
+}
+struct node *sort(struct node *head)
+{
+
+    struct node*ptr,*ptr1;
+    int temp;
+    ptr=head;
+    while(ptr->link!=NULL)
+    {
+        ptr1=ptr->link;
+        while(ptr1!=NULL)
+        {
+            if(ptr->data>ptr1->data)
+            {
+                temp=ptr->data;
+                ptr->data=ptr1->data;
+                ptr1->data=temp;
+
+            }
+            ptr1=ptr1->link;
+        }
+          ptr=ptr->link;
+    }
+    return head;
+}
+
+int main()
+{
+    struct node *head=NULL;
+   struct node *p;
+
+    struct node*k1=(struct node*)malloc(sizeof(struct node));
+    k1->data=6000;
+    k1->link=NULL;
+   head=k1;
+
+
+    struct node *k2=(struct node*)malloc(sizeof(struct node));
+    k2->data=5000;
+    k1->link=k2;
+    k2->link=NULL;
+
+
+    struct node *k3=(struct node*)malloc(sizeof(struct node));
+    k3->data=4000;
+    k2->link=k3;
+    k3->link=NULL;
+
+    struct node *k4=(struct node*)malloc(sizeof(struct node));
+    k4->data=3000;
+    k3->link=k4;
+    k4->link=NULL;
+    
+    p=head;
+     printf("before  sorting:");
+    while(p!=NULL)
+    {
+        printf("creating of nodes:%d\n",p->data);
+        p=p->link;
+    }
+
+    head=insertatbeg(head);
+    p=head;
+    printf("after inserting the node at beg the linked list is:");
+    while(p!=NULL)
+    {
+        printf("nodes:%d\n",p->data);
+        p=p->link;
+    }
+
+    p=head;
+    head=sort(head); 
+    
+    printf("after soting:");
+    while(p!=NULL)
+    {
+        printf("nodes:%d\n",p->data);
+        p=p->link;
+    }
+   
+    
+}
+
+
+
+
+
+26/11/22:
+
+
+
+
+#include <stdio.h>
+#include<string.h>
+int main()
+{
+    char a[100];
+    printf("enter the string:");
+    scanf("%s",a);
+    int l=sizeof(a)/sizeof(a[0]);
+    printf("the length of the string:%d\n",l);
+    for(int i=0;i<l/2;i++)
+    {
+        char temp=a[i];
+        a[i]=a[l-i-1];
+        a[l-i-1]=temp;
+    }
+    printf("reverse a string:%s",a);
+}
+
+    
+    
+
