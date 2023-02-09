@@ -1,0 +1,38 @@
+void *memcpy(void *src,void *des,size_t);
+void *memmov(voi *src,void *des,temp_var);
+
+
+void (*fptr)(char *)=fun;
+fptr(a);
+void fun(char *a)
+
+r=
+int **ptr;
+ptr=(int**)malloc(n*sizeof(int))
+
+
+void fun(int *a)
+git diff
+
+
+#include<stdio.h>
+#define N 32
+int main()
+{
+int a=10,b=20,k=0,k1=0,c=0;
+for(int i=0;i<N;i++)
+k=a>>N&1;
+k1=b>>N&1;
+if(k!=k)
+{
+c++;
+}
+printf("%d",c);
+}
+
+void remove_altdel(struct node *head)
+{
+struct node *ptr,*ptr1;
+ptr=head;
+
+
