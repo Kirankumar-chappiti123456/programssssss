@@ -1,0 +1,262 @@
+1)
+
+#include <stdio.h>
+#include<string.h>
+#define M 3
+int main()
+{
+   char *color[]={"red","black","white"};
+   for(int i=0;i<M;i++)
+   {
+       printf(":%s ",color[i]);
+   }
+}
+
+2)
+
+
+#include <stdio.h>
+#include<string.h>
+#define M 3
+char fun(char *color[])
+{
+   
+   for(int i=0;i<M;i++)
+   {
+       printf(":%s ",color[i]);
+   }
+}
+int main()
+{
+    char *color[]={"red","black","white"};
+    char (*fptr)(char *[] )=fun;
+    fun(color);
+}
+
+3)
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[]={"i work at thundersoft"};
+    char w[10][10],large[20],small[20];
+    int k=0,i=0,j=0,l=0;
+    for(k=0;str[k]!='\0';k++)
+    {
+        if(str[k]!=32 && str[k]!='\0')
+        {
+            w[i][j++]=str[k];
+        }
+    
+    else
+    {
+        w[i][j]='\0';
+        i++;
+        j=0;
+    }
+}
+    l=i+1;
+    strcpy(large,w[0]);
+    strcpy(small,w[0]);
+    for(k=0;k<l;k++)
+    {
+     if(strlen(large)<strlen(w[k]))
+     {
+         strcpy(large,w[k]);
+     }
+     if(strlen(small) > strlen(w[k]))
+     {
+         strcpy(small,w[k]);
+     }
+    }
+    printf("the big string:%s\n",large);
+    printf("the small string:%s\n",small);
+    int y=strlen(large);
+    int p=strlen(small);
+    printf("length of big string:%d\n",y);
+    printf("length of small string:%d",p);
+}
+
+
+4)
+#include<stdio.h>
+int main()
+{
+ char str[]="i work at thundersoft";
+ int c=0;
+ for(int i=0;str[i]!='\0';i++)
+ {
+     c++;
+ }
+ printf("%[^\n]d",c);
+}
+
+5)
+#include<stdio.h>
+
+int main()
+{
+    int N=8;
+    int num=256;
+    (num&1<<N)?printf("set"):printf("unset");
+}
+
+
+6)
+
+#include<stdio.h>
+
+int main()
+{
+    int n=12;
+    int m=3;
+    (n>>m&1)?printf("set"):printf("unset");
+    
+}
+
+
+
+
+7)
+#include<stdio.h>
+int main()
+{
+  char k[]={"kirankumar123@Kumar"};
+  int al=0,di=0,sp=0;
+  for(int i=0;k[i]!='\0';i++)
+  {
+      if((k[i]>=65 && k[i]<=90 ) || (k[i]>=97 && k[i]<=122))
+      {
+         al++; 
+      }
+      else {
+          if(k[i]>=48 && k[i]<=57)
+          {
+              di++;
+          }
+      
+      else
+      {
+          sp++;
+      }
+  }
+  }
+  printf("%d\n",al);
+  printf("%d\n",di);
+  printf("%d\n",sp);
+}
+
+
+8)
+#include<stdio.h>
+int main()
+{
+  char k[]={"kirankumarKumar"};
+  int al=0,di=0,sp=0;
+  for(int i=0;k[i]!='\0';i++)
+  {
+      if((k[i]>=65 && k[i]<=90 ) || (k[i]>=97 && k[i]<=122))
+      {
+          if(k[i]=='a' || k[i]=='e' || k[i]=='i' || k[i]=='o' || k[i]=='u' || k[i]=='A' || k[i]=='E' || k[i]=='I' || k[i]=='O' || k[i]=='U' )
+         {
+             al++;
+         }
+         else
+         {
+             di++;
+         }
+      }
+  }
+         printf("vowels:%d\n",al);
+         printf("consonents:%d",di);
+}
+  
+
+
+
+9)
+#include<stdio.h>
+#define M sizeof(int)*8
+int fun(int n,int c)
+{
+    for(int i=0;i<M;i++)
+    {
+    if((n>>i)&1)
+
+        c=i;
+         //break;
+}
+printf("the index:%d",c);
+}
+int main()
+{
+    int n=22,c=0;
+    int (*fptr)(int,int)=fun;
+    fptr(n,c);
+}
+
+
+10)#include<stdio.h>
+
+int avg(int a[],int len)
+{
+    
+    
+    int sum=0;
+    for(int i=0;i<len;i++)
+    {
+        sum=sum+a[i];
+    }
+    int k=sum/len;
+    printf("the average of element:%d\n",k);
+    printf("sum of all elements:%d\n",sum);
+}
+int main()
+{
+    int a[]={1,2,3,4,5};
+    int len=sizeof(a)/sizeof(a[0]);
+    int (*fptr)(int a[],int )=avg;
+    fptr(a,len);
+}
+
+11)
+
+#include<stdio.h>
+#include<string.h>
+//#define len strlen(s)
+int main()
+{
+  char s[]={"kirankumar"};
+  int len=strlen(s);
+  printf("%ld",len);
+  char temp=0;
+  int j=0;
+  for(j=0;j<len/2;j++)
+    {
+        temp=s[j];
+        s[j]=s[len-j-1];
+        s[len-j-1]=temp;
+    }
+    printf("%s",s);
+
+    
+}
+      
+#include <stdio.h>
+unsigned int fun(unsigned int num)
+{
+    int even=num & 0xAAAAAAAA;// 32 bit in binary
+    int odd=num & 0x55555555;// 32 bit in binary
+    even>>=1;
+    odd<<=1;
+    int k=even | odd;
+    printf("%d",k);
+}
+int main()
+{
+    unsigned int num=23;
+    int (*fptr)(int)=fun;
+    fptr(num);
+}
+
+
