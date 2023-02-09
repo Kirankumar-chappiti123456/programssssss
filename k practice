@@ -1,0 +1,464 @@
+#include <stdio.h>
+doughts:
+
+
+
+#include<stdlib.h>
+#include<string.h>
+int amstr(int *ptr)
+{
+    int num=0,n1=0,r=0,r1=0;
+    num=*ptr;
+    while(num!=0)
+    {
+        r=num%10;
+        r1=r1+r*r*r;
+        num=num/10;
+    }
+    (r1==*ptr)?printf("amstrong"):printf("not amstrong");
+}
+int main()
+{
+    int *ptr=(int*)malloc(1*sizeof(int));
+    // printf("enter the number:");
+    // for(int i=0;i<1;i++)
+    // scanf("%d",ptr+i);
+    ptr[0]=153;
+}
+
+
+
+
+#include<stdio.h>
+int nth(int num,int pos)
+{
+(num>>pos&1)?printf("set"):printf("unset");
+}
+int main()
+{
+    int num;
+    printf("enter the number:");
+    scanf("%d",&num);
+    int pos=pos;
+    printf("enter the pos:");
+    scanf("%d",&pos);
+    int (*fptr)(int ,int)=nth;
+    fptr(num,pos);
+}
+
+
+
+
+
+
+23/01/2023:  today practice
+#include<stdio.h>
+#define L sizeof(int)*8
+int main()
+{                          // using 32 bit 
+    int a=3,i=0,c=0;
+    for(i=0;i<L;i++)
+    {
+        if(a>>i&1)
+        c++;
+        break;
+    }
+    (c==0)?printf("lsb"):printf("not lsb" );
+}
+
+#include<stdio.h>
+#define L sizeof(int)*8
+int main()
+{
+    int a=3,i=0,c=0,pos=2;
+    for(i=32;i>=0;i--)
+    {
+        if(a&1<<pos)
+        c++;
+    }
+    (c==0)?printf("set"):printf("unset");
+}
+
+bitwise operator :
+         &   |   ^ 
+   1  0  0   1   1
+   0  1  0   1   1
+   1  1  1   1   0
+   0  0  0   0   0
+
+
+
+#include<stdio.h>
+#define L sizeof(int)*8
+int main()
+{
+    int a=16,i=0,c=0,pos=2,k=0;
+    for(i=0;i<L;i++)
+    {
+        if(a>>i&1)
+        {
+            break;
+        }
+        else
+        {
+            c++;
+        }
+    }
+   printf("The no of trailing zero:%d",c);
+}
+
+#include<stdio.h>
+#define L sizeof(int)*8
+int main()
+{
+    int a=16,i=0,c=0,pos=2,k=0;
+    int y=L-1;
+    for(i=0;i<L;i++)
+    {
+        if(a<<i&1<<L-1)
+        {
+            break;
+        }
+        else
+        {
+            c++;
+        }
+    }
+   printf("The no of leading zero:%d",c);
+}
+
+
+#include<stdio.h>
+#define L sizeof(int)*8
+int main()
+{
+    int a=16,i=0,c=0,pos=2,k=0,c1=0;
+    for(i=0;i<L;i++)
+    {
+        if(a>>i&1)
+        {
+            c++;
+        }
+        else
+        {
+            c1++;
+        }
+    }
+   printf("The no of ones:%d\n",c);
+   printf("the no of zeros:%d\n",c1);
+}
+
+
+#include<stdio.h>
+#define N sizeof(int)*8
+int main()
+{
+    int a=10,b=20,c=0;
+    for(int i=0;i<N;i++)
+    {
+    int k=a>>i&1;
+    int k1=b>>i&1;
+    if(k!=k1)
+    {
+        c++;
+    }
+}
+    printf("the no of bits required to change:%d",c);
+}
+
+
+#include<stdio.h>
+int main()
+{
+    char a[]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+    int *ptr=(int*)&a;
+    ptr=ptr+3;
+    printf("%d",*(char*)ptr);
+}
+
+
+#include<stdio.h>
+int main()
+{
+    int i=12345678;
+    char *ptr=(char *)&i;
+    printf("the little endian:%d",*ptr);
+}
+
+
+
+#include<stdio.h>
+int main()
+{
+    int a=10,b=20;
+    printf("before swap of a:%d\n",a);
+    printf("after swap of b:%d\n",b);
+    a=a^b;
+    b=a^b;
+    a=a^b;
+    printf("after swap of a:%d\n",a);
+    printf("after swap of b:%d\n",b);
+}
+    
+
+#include<stdio.h>
+#define N sizeof(int)*8
+int main()
+{
+    int a=10,r=2,lsb=0;
+    while(r--)
+    {
+        lsb=a&1;
+        a=a>>1|lsb;
+    }
+    printf("%d",a);
+}
+
+#include<stdio.h>
+#define N sizeof(int)*8
+int main()
+{
+    int a=10,r=2,msb=0;
+    while(r--)
+    {
+        msb=a>>r&1;
+        a=a<<1|msb;
+    }
+    printf("%d",a);
+}
+
+
+#include<stdio.h>
+#define N sizeof(int)*8
+int main()
+{
+    int a=12,c=0;
+    int bin[N],index=0;
+    index=N-1;
+    while(index>=0)
+    {
+        bin[index]=a&1;
+        c++;
+        index--;
+        a=a>>1;
+    }
+    for(int i=0;i<N;i++)
+    {
+        printf("%d",bin[i]);
+    }
+    printf("\n %d",c);
+}
+
+
+#include<stdio.h>
+int main()
+{
+    int a=8;
+    (a&&(a&(a-1))==0)?printf("power of 2"):printf(" not power of 2");
+}
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char a[]="kiran kumar chappiti";
+    char w[10][10],l[10],s[10];
+    int i=0,j=0,k=0,len;
+    for(k=0;a[k]!='\0';k++)
+    {
+        if(a[k]!=32 && a[k]!='\0')
+        {
+            w[i][j++]=a[k];
+        }
+        else
+        {
+            w[i][j]='\0';
+            i++;
+            j=0;
+        }
+    }
+    len=i+1;
+    strcpy(l,w[0]);
+    strcpy(s,w[0]);
+    for(k=0;k<len;k++)
+    {
+        if(strlen(l)<strlen(w[k]))
+        {
+            strcpy(l,w[k]);
+        }
+        if(strlen(s)>strlen(w[k]))
+        {
+            strcpy(s,w[k]);
+        }
+    }
+    printf("%s",l);
+    printf("%s",s);
+}
+
+
+
+
+#include<stdio.h>
+int main()
+{
+    int a[]={1,2,3,5,4,6,7,8,9,10},sum=0;
+    int l=sizeof(a)/sizeof(a[0]);
+    for(int i=0;i<l;i++)
+    {
+        sum=sum+a[i];
+    }
+    printf("%d",sum);
+}
+
+
+
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char a[]="kiran kumar chappiti";
+    char w[10][10],l[10],s[10];
+    int i=0,j=0,k=0,len=0;
+    for(k=0;a[k]!='\0';k++)
+    {
+        if(a[k]!=' ' && a[k]!='\0')
+        {
+            w[i][j++]=a[k];
+        }
+        else
+        {
+            w[i][j]='\0';
+            i++;
+            j=0;
+        }
+    }
+    len=i+1;
+    strcpy(l,w[0]);
+    strcpy(s,w[0]);
+    for(k=0;k<len;k++)
+    {
+        if(strlen(l)<strlen(w[k]))
+        {
+            strcpy(l,w[k]);
+        }
+        if(strlen(s)>strlen(w[k]))
+        {
+            strcpy(s,w[k]);
+        }
+    }
+    printf("the largest string:%s\n",l);
+    printf("the smallest string:%s\n",s);
+    int k2=strlen(l);
+    int k1=strlen(s);
+    printf("the length of largest string:%d\n",k2);
+    printf("the length of smallest string:%d\n",k1);
+}
+
+
+#include<stdio.h>
+int main()
+{
+    int a[]={1,2,22,4,33,5,34,67,999};
+    int l=sizeof(a)/sizeof(a[0]);
+    int large=a[0],i=0;
+    for(i=0;i<l;i++)
+    {
+        if(a[i]>large)
+        {
+            large=a[i];
+        }
+    }
+    printf("%d",large);
+}
+    
+
+
+#include<stdio.h>
+int main()
+{
+    int a[]={1,2,22,4,33,5,34,67,999};
+    int l=sizeof(a)/sizeof(a[0]);
+    int small=a[0],i=0;
+    for(i=0;i<l;i++)
+    {
+        if(a[i]<small)
+        {
+            small=a[i];
+        }
+    }
+    printf("%d",small);
+}
+
+
+#include<stdio.h>
+int main()
+{
+    int a[]={1,2,22,4,33,5,34,67,999};
+    int l=sizeof(a)/sizeof(a[0]);
+    int small=a[0],i=0,l1=0,l2=0;
+    for(i=0;i<l;i++)
+    {
+        if(a[i]>small)
+        {
+            l2=l1;
+            l1=small;
+            small=a[i];
+        }
+    }
+        if(a[i]>l1 && a[i]<small)
+        {
+            l2=l1;
+            l1=a[i];
+        }
+        if(a[i]>l2 && a[i]<l1)
+        {
+            l2=a[i];
+        }
+
+    printf("%d",l2);
+}
+
+
+today practice program:
+
+
+#include<stdio.h>
+int main()
+{
+    int a[]={1,2,3,4,5};
+    int b[]={6,7,8,9,0};
+     printf("before swap of a[i]:");
+    for(int i=0;i<5;i++)
+    {
+        printf("%d",a[i]);
+    }
+    printf("\n");
+    printf("before swap of b[i]:");
+    for(int i=0;i<5;i++)
+    {
+        printf("%d",b[i]);
+    }
+    printf("\n");
+    int *p=&a[0];
+    int *p1=&b[0];
+    for(int i=0;i<5;i++)
+    {
+        int temp=*(p+i);
+        *(p+i)=*(p1+i);
+        *(p1+i)=temp;
+    }
+    printf("after swap of a[i]:");
+    for(int i=0;i<5;i++)
+    {
+        printf("%d",*(p+i));
+    }
+    printf("\n");
+    printf("after swap of b[i]:");
+    for(int i=0;i<5;i++)
+    {
+        printf("%d",*(p1+i));
+    }
+}
+    
+    
