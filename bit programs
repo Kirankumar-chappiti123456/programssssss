@@ -1,0 +1,478 @@
+
+
+lsb:
+
+
+#include<stdio.h>
+int main()
+{
+    int a=15,k=0,c=0;
+    for(int i=0;i<32;i++)
+    {
+        k=(a>>i)&1;
+c++;
+        break;
+    }
+    (c==1)?printf("lsb"):printf("not lsb");
+}
+
+msb:
+#include<stdio.h>
+int main()
+{
+    int a=2147483648,k=0;
+    for(int i=32-1;i>=0;i--)
+    {
+        k=(a>>i)&1;
+        break;
+    }
+    (k==1)?printf("msb"):printf("not msb");
+}
+
+using 32 bit:
+#include<stdio.h>
+#define N 32
+int main()
+{
+    int a=15,pos=6,i=0,c=0;
+    for(i=0;i<N;i++)
+    {
+        if(a>>i&1<<pos-1)
+        c++;
+    }
+    (c)?printf("set"):printf("unset");
+}
+
+
+
+set or unset:
+#include<stdio.h>
+int main()
+{
+   int a=20,pos=3;
+   (a>>pos-1&1)?printf("set"):printf("unset");
+}
+   using 32 
+:
+#include<stdio.h>
+#define N 32
+int main()
+{
+    int a=15,pos=5,i=0,c=0,k=0;
+    for(i=0;i<N;i++)
+    {
+        if((a>>i)&1<<pos-1)
+        c++;
+        
+        
+    }
+    (c)?printf("set"):printf("unset");
+}
+
+get nth bit set:
+#include<stdio.h>
+int main()
+{
+   int a=15,pos=6,k=0;
+   k=(a|1<<pos-1);
+   printf("%d",k);
+}
+
+using a 32 nth bit:
+#include<stdio.h>
+#define N 32
+int main()
+{
+    int a=15,pos=6,i=0,c=0,k=0;
+    for(i=0;i<N;i++)
+    {
+        k=(a>>i|1<<pos-1);
+        break;
+    }
+    printf("%d",k);
+}
+
+
+
+
+toggle a bit :
+#include<stdio.h>
+int main()
+{
+   int a=20,pos=4,k=0;
+   k=a^1<<pos-1;
+   printf("%d",k);
+}
+
+using 32:
+#include<stdio.h>
+#define N 32
+int main()
+{
+    int a=15,pos=4,i=0,c=0,k=0;
+    for(i=0;i<N;i++)
+    {
+        k=((a>>i)^1<<pos-1);
+        break;
+    }
+    printf("%d",k);
+}
+
+clear a bit:
+
+
+#include<stdio.h>
+int main()
+{
+   int a=20,pos=4,k=0;
+   k=(a&(~(1<<pos-1)));
+   printf("clear a bit:%d",k);
+}
+
+
+using 32 bit clear:
+#include<stdio.h>
+#define N 32
+int main()
+{
+    int a=15,pos=1,i=0,c=0,k=0;
+    for(i=0;i<N;i++)
+    {
+        k=(a>>i&(~(1<<pos-1)));
+        break;
+    }
+    printf("%d",k);
+}
+
+highest set bit :
+#include<stdio.h>
+int main()
+{
+   int a=20,c=0,i=0;
+   for(i=0;i<32;i++)
+   {
+       if(a>>i&1)
+       {
+           c=i;
+       }
+   }
+   printf("the highest set bit:%d",c);
+}
+   
+   the lowest set bit:
+#include<stdio.h>
+int main()
+{
+   int a=20,c=0,i=0;
+   for(i=0;i<32;i++)
+   {
+       if(a>>i-1&1)
+       {
+           break;
+       }
+       else
+       {
+           c++;
+       }
+   }
+   printf("the lowest set bit:%d",c);
+}
+   
+   the no of trailing zeros :
+#include<stdio.h>
+int main()
+{
+   int a=2,c=0,i=0;
+   for(i=0;i<32;i++)
+   {
+       if(a>>i&1)
+       {
+           break;
+       }
+       else
+       {
+           c++;
+       }
+   }
+   printf("no of trailing zeros:%d",c);
+}
+   
+   count leading zeros:
+#include<stdio.h>
+int main()
+{
+   int a=15,c=0,i=0;
+   int msb=1<<32-1;
+   for(i=0;i<32-1;i++)
+   {
+       if(a<<i&msb)
+       {
+           
+           break;
+       }
+       else
+       {
+           c++;
+       }
+   }
+   printf("no of leading zeros:%d",c);
+}
+   
+   flipped bit a=10 and b=20 and 4 bit requried to change:
+#include<stdio.h>
+int main()
+{
+   int a=10,b=20,c=0,i=0,k=0,k1=0;
+   for(i=0;i<32-1;i++)
+   {
+       k=a>>i-1&1;
+       k1=b>>i-1&1;
+       if(k!=k1)
+       {
+           c++;
+       }   
+   } 
+   printf("%d",c);
+}
+   
+   the no of 1 and 0 in binary:
+#include<stdio.h>
+int main()
+{
+   int a=10,c=0,i=0,k=0;
+   for(i=0;i<32-1;i++)
+   {
+       if(a>>i&1)
+       {
+           c++;
+       }
+       else
+       {
+           k++;
+       }
+   }
+       printf("the no of ones:%d\n",c);
+       printf("the no of zeros:%d\n",k);
+}
+
+   
+   binary conversion: like 0001110000111000
+#include<stdio.h>
+int main()
+{
+   int a=12,c=0;
+   int bin[32],index=0;
+   index=32-1;
+   while(index>=0)
+   {
+       bin[index]=a&1;
+       c++;
+       index--;
+       a=a>>1;
+   }
+   printf("the count of the number:%d\n",c);
+   printf("the binary number:");
+   for(int i=0;i<32;i++)
+   {
+       printf("%d",bin[i]);
+   }
+}
+   
+left rotate and right rotate:
+#include<stdio.h>
+int main()
+{
+  int a=16,i=0,lsb=0,pos=2;
+  while(pos--)
+  {
+    lsb=a&1;
+    a=a<<1|lsb;
+  }
+  printf("%d",a);
+}
+
+
+
+8421
+1001
+
+
+
+#include<stdio.h>
+#include<string.h>
+char len(char s[],char w[10][10],char l[],char d[])
+{
+  
+  int k=0,l1=0,i=0,j=0;
+  for(k=0;s[k]!='\0';k++)
+  {
+      if(s[k]!=32 && s[k]!=32)
+      {
+          w[i][j++]=s[k];
+      }
+      else
+      {
+          w[i][j]='\0';
+          i++;
+          j=0;
+      }
+  }
+  l1=i+1;
+  strcpy(l,w[0]);
+  strcpy(d,w[0]);
+  for(k=0;k<l1;k++)
+  {
+      if(strlen(l)<strlen(w[k]))
+      {
+          strcpy(l,w[k]);
+      }
+      if(strlen(d)>strlen(w[k]))
+      {
+          strcpy(d,w[k]);
+      }
+  }
+printf("the largest string:%s\n",l);
+printf("the smallest string:%s\n",d);
+}
+int main()
+{
+  char s[]="kiran kumar chappiti my name";
+  char w[10][10],l[10],d[10];
+  char (*fptr)(char [],char [10][10],char [],char[])=len;
+  fptr(s,w,l,s);
+}
+power of 2:
+#include<stdio.h>
+int main()
+{
+    int a=5;
+    (a&&(a&(a-1))==0)?printf("power of 2"):printf("not a power of 2");
+}
+
+#include<stdio.h>
+int main()
+{
+   char s[]={"10 01 01 01"},i=0;
+   int l=sizeof(s);
+   printf("%d\n",l);
+   for(i=0;i<l;i++)
+   {
+       printf("%c",s[i]);
+   }
+   for(i=0;i<l/2;i++)
+   {
+       if(s[i]!=32)
+       {
+           
+       
+       int temp=s[i];
+       s[i]=s[i+6];
+       s[i+6]=temp;
+   }
+  }
+  printf("\n");
+  for(i=0;i<l;i++)
+  {
+      printf("%c",s[i]);
+  }
+}
+own memcpy:
+#include<stdio.h>
+#include<string.h>
+char memcpys(char * dest,char *src,int l)
+{
+    char *s=src;
+    char *d=dest;
+    for(int i=0;i<l;i++)
+    {
+        d[i]=s[i];
+    }
+    
+    printf("the d[i]:%s",d);
+    
+}
+int main()
+{
+    char s[]="kirankumar";
+    char d[20];
+    int l=strlen(s);
+
+    char (*fptr)(char [],char [],int )=memcpys;
+    fptr(d,s,l);
+}
+
+
+mask a bit:
+
+#include<stdio.h>
+int main()
+{
+    int a=10,pos1=2,pos2=6;
+    int b=((a>>pos1-1)-1);
+    int c=(a<<pos2)-1;
+    int res=b&c;
+    printf("%d",res);
+}
+
+
+even and odd using bitwise :
+#include<stdio.h>
+int main()
+{
+    int a=13,c=0,k=0;
+    for(int i=0;i<32;i++)
+    {
+        k=(a>>i&1);
+        c++;
+        break;
+    }
+   (k==0)?printf("even"):printf("odd");
+}
+
+#include<stdio.h>
+int main()
+{
+   int a=23,i=0,c=0,c1=0;
+   for(i=0;i<32;i++)
+   {
+       if(a>>i-1&1)
+       {
+           c++;
+       }
+       else
+       {
+           c1++;
+       }
+   }
+   printf("set bits:%d\n",c);
+   printf("unset bits:%d",c1);
+}
+   
+
+
+array concatante :
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int  a[]={1,2,3,4};
+    int b[]={1,2,3,4};
+   int  *ptr=(int*)&a;
+  int *ptr1=(int*)&b;
+   int i=0;
+  for(i=0;i<4;i++)
+  {
+      *(ptr+i)=*(ptr1+i);
+  }
+  int k=i;
+  for(i=0;i<4;i++)
+  {
+      *(ptr+k)=*(ptr1+i);
+      k++;
+  }
+  for(i=0;i<k;i++)
+
+{
+    printf("%d",ptr[i]);
+}  
+}
