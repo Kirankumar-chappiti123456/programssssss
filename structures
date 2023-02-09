@@ -1,0 +1,140 @@
+struture in stack
+
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct student
+{
+    char name[10];
+    int rollno;
+    float marks[5];
+}call_stu;
+int main()
+{
+    call_stu stu1;
+    scanf("%s",stu1.name);
+    scanf("%d",&stu1.rollno);
+    for(int i=0;i<5;i++)
+    scanf("%f",&stu1.marks[i]);
+    printf("Student Name:%s,Student rollno:%d\n",stu1.name,stu1.rollno);
+    printf("Student Marks:");
+    for(int i=0;i<5;i++)
+    printf("%f ",stu1.marks[i]);
+    call_stu *ptr=(call_stu*)malloc(sizeof(call_stu));
+}
+
+structure using heap
+
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct student
+{
+    char name[10];
+    int rollno;
+    float marks[5];
+}call_stu;
+
+int main()
+{
+    call_stu *ptr=(call_stu*)malloc(sizeof(call_stu));
+    scanf("%s",ptr->name);
+    scanf("%d",&ptr->rollno);
+    for(int i=0;i<5;i++)
+    scanf("%f",&ptr->marks[i]);
+    printf("Student Name:%s,Student rollno:%d\n",ptr->name,ptr->rollno);
+    printf("Student Marks:");
+    for(int i=0;i<5;i++)
+    printf("%f ",ptr->marks[i]);
+}
+
+
+//Structure on heap using functions
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct student
+{
+    char name[10];
+    int rollno;
+    float marks[5];
+}call_stu;
+void display(call_stu *ptr)
+{
+   printf("Student Name:%s,Student rollno:%d\n",ptr->name,ptr->rollno);
+    printf("Student Marks:");
+    for(int i=0;i<5;i++)
+    printf("%f ",ptr->marks[i]); 
+}
+int main()
+{
+    call_stu *ptr=(call_stu*)malloc(sizeof(call_stu));
+    scanf("%s",ptr->name);
+    scanf("%d",&ptr->rollno);
+    for(int i=0;i<5;i++)
+    scanf("%f",&ptr->marks[i]);
+    display(ptr);
+    return 0;
+}
+
+//structure on stack using function
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct student
+{
+    char name[10];
+    int rollno;
+    float marks[5];
+}call_stu;
+void display(call_stu *ptr)
+{
+   printf("Student Name:%s,Student rollno:%d\n",ptr->name,ptr->rollno);
+    printf("Student Marks:");
+    for(int i=0;i<5;i++)
+    printf("%f ",ptr->marks[i]); 
+}
+int main()
+{
+    call_stu stu1;
+    scanf("%s",stu1.name);
+    scanf("%d",&stu1.rollno);
+    for(int i=0;i<5;i++)
+    scanf("%f",&stu1.marks[i]);
+    display(&stu1);
+}
+
+//Array of strutures
+
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct student
+{
+    char name[10];
+    int rollno;
+    float marks[5];
+}call_stu;
+void display(call_stu *ptr)
+{
+    for(int i=0;i<3;i++)
+    {
+         printf("Student Name:%s\t,Student rollno:%d\t Student Marks:",(ptr+i)->name,(ptr+i)->rollno);
+        for(int j=0;j<5;j++)
+        {
+            printf("%.2f ",(ptr+i)->marks[j]);
+        }
+        printf("\n");
+    }
+}
+int main()
+{
+    call_stu stu1[3];
+    for(int i=0;i<3;i++){
+    printf("Enter name, roll no:\n");
+    scanf("%s %d",stu1[i].name,&stu1[i].rollno);
+    }
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<5;j++)
+        {
+             scanf("%f",&stu1[i].marks[j]);
+        }
+    }
+    display(stu1);
+}
