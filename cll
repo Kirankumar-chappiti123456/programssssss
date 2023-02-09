@@ -1,0 +1,61 @@
+
+
+circular linked list:
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+    int data;
+    struct node* next;
+    
+};
+struct node *deleteatspec(struct node*head)
+{
+    struct node*temp1=head;
+    struct node*new;
+    int pos=3;
+    while(pos-1!=1)
+    {
+        temp1=temp1->next;
+        pos--;
+    }
+    new=temp1->next;
+    temp1->next=new->next;
+    free(new);
+    new=NULL;
+    return head;
+}
+   
+int main()
+{
+    struct node *head=NULL;
+    struct node *temp;
+    struct node *p=(struct node *)malloc(sizeof(struct node));
+    p->data=10;
+    p->next=NULL;
+    head=p;
+    temp=head;
+    
+    struct node *p1=(struct node *)malloc(sizeof(struct node));
+    p1->data=20;
+    p->next=p1;
+    
+    struct node *p2=(struct node *)malloc(sizeof(struct node));
+    p2->data=30;
+    p1->next=p2;
+    
+    struct node *p3=(struct node *)malloc(sizeof(struct node));
+    p3->data=40;
+    p2->next=p3;
+    p3->next=head;
+
+head=deleteatspec(head);
+
+while(temp->next!=head)
+{
+    printf("%d  ",temp->data);
+    temp=temp->next;
+}
+printf("%d  ",temp->data);
+    return 0;
+}
