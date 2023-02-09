@@ -1,0 +1,308 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+    int data;
+    struct node* next;
+    
+};
+struct node *insertbeg(struct node *head)
+{
+    struct node *t=malloc(sizeof(struct node));
+    t->data=90;
+    t->next=head;
+    head=t;
+    //return head;
+    while(t!=NULL)
+    {
+        printf("%d  ",t->data);
+        t=t->next;
+    }
+    
+}
+int main()
+{
+    struct node *head=NULL;
+    struct node *p=(struct node *)malloc(sizeof(struct node));
+    p->data=10;
+    p->next=NULL;
+    head=p;
+    
+    struct node *p1=(struct node *)malloc(sizeof(struct node));
+    p1->data=20;
+    p->next=p1;
+    
+    struct node *p2=(struct node *)malloc(sizeof(struct node));
+    p2->data=30;
+    p1->next=p2;
+    
+    struct node *p3=(struct node *)malloc(sizeof(struct node));
+    p3->data=40;
+    p2->next=p3;
+    p3->next=NULL;
+
+insertbeg(head);
+// struct node *p5=head;
+// while(p5!=NULL)
+// {
+//     printf("%d  ",p5->data);
+//     p5=p5->next;
+// }
+//     return 0;
+}
+
+
+
+
+insert at end:
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+    int data;
+    struct node* next;
+    
+};
+struct node *insertbeg(struct node *head)
+{
+    struct node *temp=head;
+    struct node *t=malloc(sizeof(struct node));
+    t->data=90;
+    t->next=NULL;
+    while(temp->next!=NULL)
+    {
+       temp=temp->next;
+    }
+    temp->next=t;
+    return head;
+    
+}
+int main()
+{
+    struct node *head=NULL;
+    struct node *p=(struct node *)malloc(sizeof(struct node));
+    p->data=10;
+    p->next=NULL;
+    head=p;
+    
+    struct node *p1=(struct node *)malloc(sizeof(struct node));
+    p1->data=20;
+    p->next=p1;
+    
+    struct node *p2=(struct node *)malloc(sizeof(struct node));
+    p2->data=30;
+    p1->next=p2;
+    
+    struct node *p3=(struct node *)malloc(sizeof(struct node));
+    p3->data=40;
+    p2->next=p3;
+    p3->next=NULL;
+
+head=insertbeg(head);
+struct node *p5=head;
+while(p5!=NULL)
+{
+    printf("%d  ",p5->data);
+    p5=p5->next;
+}
+    return 0;
+}
+insert at middle:
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+    int data;
+    struct node* next;
+    
+};
+struct node *insertbeg(struct node *head)
+{
+    struct node *temp=head;
+    struct node *t=malloc(sizeof(struct node));
+    t->data=90;
+    t->next=NULL;
+    int pos=2;
+    while(pos!=1)
+    {
+       temp=temp->next;
+       pos--;
+    }
+    t->next=temp->next;
+    temp->next=t;
+    return head;
+    
+
+    return head;
+    
+}
+int main()
+{
+    struct node *head=NULL;
+    struct node *p=(struct node *)malloc(sizeof(struct node));
+    p->data=10;
+    p->next=NULL;
+    head=p;
+    
+    struct node *p1=(struct node *)malloc(sizeof(struct node));
+    p1->data=20;
+    p->next=p1;
+    
+    struct node *p2=(struct node *)malloc(sizeof(struct node));
+    p2->data=30;
+    p1->next=p2;
+    
+    struct node *p3=(struct node *)malloc(sizeof(struct node));
+    p3->data=40;
+    p2->next=p3;
+    p3->next=NULL;
+
+head=insertbeg(head);
+struct node *p5=head;
+while(p5!=NULL)
+{
+    printf("%d  ",p5->data);
+    p5=p5->next;
+}
+    return 0;
+}
+
+
+
+
+delete at end:
+
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+    int data;
+    struct node* next;
+    
+};
+struct node *deleteatbeg(struct node *head)
+{
+    if(head==NULL)
+    {
+        printf("list is empty:");
+    }
+    else if(head==NULL)
+    {
+        free(head);
+        head=NULL;
+    }
+    else
+    {
+        struct node *temp=head;
+        struct node *temp1=head;
+        while(temp->next!=NULL)
+        {
+            temp1=temp;
+            temp=temp->next;
+        }
+        temp1->next=NULL;
+        free(temp);
+        temp=NULL;
+        return head;
+        
+    }
+}
+int main()
+{
+    struct node *head=NULL;
+    struct node *p=(struct node *)malloc(sizeof(struct node));
+    p->data=10;
+    p->next=NULL;
+    head=p;
+    
+    struct node *p1=(struct node *)malloc(sizeof(struct node));
+    p1->data=20;
+    p->next=p1;
+    
+    struct node *p2=(struct node *)malloc(sizeof(struct node));
+    p2->data=30;
+    p1->next=p2;
+    
+    struct node *p3=(struct node *)malloc(sizeof(struct node));
+    p3->data=40;
+    p2->next=p3;
+    p3->next=NULL;
+
+head=deleteatbeg(head);
+struct node *p5=head;
+while(p5!=NULL)
+{
+    printf("%d  ",p5->data);
+    p5=p5->next;
+}
+    return 0;
+}
+
+
+delete at middle:
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+    int data;
+    struct node* next;
+    
+};
+struct node *deleteatbeg(struct node *head)
+{
+    struct node *temp=head;
+    struct node *newnode;
+    int pos=2;
+    while(pos!=1)
+    {
+        temp=temp->next;
+        pos--;
+    }
+   newnode=temp->next;
+  temp->next=newnode->next;
+   free(newnode);
+   newnode=NULL;
+   return head;
+}
+
+int main()
+{
+    struct node *head=NULL;
+    struct node *p=(struct node *)malloc(sizeof(struct node));
+    p->data=10;
+    p->next=NULL;
+    head=p;
+    
+    struct node *p1=(struct node *)malloc(sizeof(struct node));
+    p1->data=20;
+    p->next=p1;
+    
+    struct node *p2=(struct node *)malloc(sizeof(struct node));
+    p2->data=30;
+    p1->next=p2;
+    
+    struct node *p3=(struct node *)malloc(sizeof(struct node));
+    p3->data=40;
+    p2->next=p3;
+    p3->next=NULL;
+
+head=deleteatbeg(head);
+struct node *p5=head;
+while(p5!=NULL)
+{
+    printf("%d  ",p5->data);
+    p5=p5->next;
+}
+    return 0;
+}
+
+
+
+
