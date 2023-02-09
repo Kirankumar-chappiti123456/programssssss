@@ -1,0 +1,29 @@
+1)what is git ?
+2)what is version of git ?
+3)what is diff b/w git and git hub?
+4)what is repositary?
+5)how to install git?
+6)how to create a repositary?
+7)how to add single file?
+8)how to add multipul files into staging area?
+9)what will you do after adding?
+10)how to connect to remote repositary?
+11)how will you upload your code into remote repo?
+12)what is git clone?
+13)what is git pull origin/master do?
+14)how to create a branch?
+15)how to switch other branches?
+16)how do merge branches?
+17)to see what was new  in a commit in your repo? what is the command ?
+18)how to get the changes b/w two commit id's?
+19)what will do git fetch?
+20)diff b/w git pull and git fetch?
+21)what is staging area?
+22)what is git diff?
+23)how to recover a deleted branch?
+24)what is git cherry-pick?
+
+25)how to remove local untracked files?
+26)what is git reset?
+27)dif between git clean and git reset?
+28)dif between git rebase and git fetch?
